@@ -93,8 +93,8 @@ Here are some examples of how you can use the script:
 To use this script, you need to clone the GitHub repository and execute the script from your terminal. No additional installation is required.
 
 ```bash
-git clone https://github.com/your-github-username/nasa-apod-fetcher.git
-cd nasa-apod-fetcher
+git clone https://github.com/AndresNeron/fetch-images-NASA.git
+cd fetch-images-NASA
 ./fetch-images-NASA.sh [options]
 ```
 
