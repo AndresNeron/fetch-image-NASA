@@ -7,20 +7,21 @@ It provides various functionalities for displaying and managing these captivatin
 an excellent tool for space enthusiasts and wallpaper enthusiasts alike.
 
 ## Table of Contents
-- Introduction
-- Features
-- Usage
-- Examples
-- Installation
-- License
 
-## Introduction
+- [Introduction](#introduction)
+- [Features](#features)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Installation](#installation)
+- [License](#license)
+
+## <a name="introduction"></a>Introduction
 The NASA Astronomy Picture of the Day is a delightful source of astronomical images, 
 videos, and descriptions, showcasing the beauty of the cosmos. This script allows 
 you to interact with these images in various ways, from downloading and viewing them 
 as a gallery to setting them as your desktop wallpaper.
 
-## Features
+## <a name="introduction"></a>Features
 - Gallery Display: View NASA's APOD images as a gallery, either for a specific date or from a random selection of images.
 
 - Download Images: Download APOD images in bulk for a specific year, providing a vast collection of captivating space visuals.
@@ -33,14 +34,14 @@ as a gallery to setting them as your desktop wallpaper.
 
 - Firefox Integration: Quickly view the APOD image description in your default web browser using a simple switch.
 
-## Usage
+## <a name="introduction"></a>Usage
 
 To utilize this script, execute it in your terminal with various options to explore NASA's APOD collection and customize your experience:
 ```bash
 ./fetch-images-NASA.sh [options]
 ```
 
-## Options
+## <a name="introduction"></a>Options
 Here are the available options for the script:
 - -g: Get APOD dates in the format %y%m%d from a specific year.
 - -d: Download APOD images from a specific year in bulk.
@@ -56,7 +57,7 @@ Here are the available options for the script:
 - -h: Display the help message to understand the available options.
 
 
-## Examples
+## <a name="introduction"></a>Examples
 Here are some examples of how you can use the script:
 
 - Get APOD dates for a specific year:
@@ -89,7 +90,7 @@ Here are some examples of how you can use the script:
 ./fetch-images-NASA.sh -f -s 300 -w 23
 ```
 
-## Installation
+## <a name="introduction"></a>Installation
 To use this script, you need to clone the GitHub repository and execute the script from your terminal. No additional installation is required.
 
 ```bash
@@ -98,6 +99,6 @@ cd fetch-images-NASA
 ./fetch-images-NASA.sh [options]
 ```
 
-## License
+## <a name="introduction"></a>License
 This project is licensed under the MIT License, which means you are free to use, modify, 
 and distribute the code according to the terms of the license. Enjoy exploring the cosmos through NASA's APOD! 🚀🌌📸
