@@ -4,7 +4,7 @@
 # and configure it as the desktop background. 
 # You can download NASA's daily pictures in mass.
 
-# Author: Grimaldi
+# Author: Andres Neron
 
 #Colours
 orangeColour="\e[0;32m\033[1m"
@@ -60,6 +60,7 @@ function helpPanel(){
 	echo -e "\t${orangeColour}-p\t${endColour}${grayColour} Change default path${endColour}"
 	echo -e "\t${orangeColour}-i\t${endColour}${grayColour} Open a specific image ${endColour}"
 	echo -e "\t${orangeColour}-b\t${endColour}${grayColour} Set background based on specific date ${endColour}"
+	echo -e "\t${orangeColour}-c\t${endColour}${grayColour} Schedule a daily cronjob to download and set the latest image as the background at the specified HOUR in format HH:MM.${endColour}"
 	echo -e "\t${orangeColour}-y\t${endColour}${grayColour} Open all images from a specific year in a randomized gallery mode${endColour}"
 	echo -e "\t${orangeColour}-w\t${endColour}${grayColour} Open all wallpaper candidates of all downloaded years in a randomized gallery mode${endColour}"
 	echo -e "\t${orangeColour}-a\t${endColour}${grayColour} Sets all wallpaper candidates as you background ${endColour}"
@@ -106,6 +107,7 @@ fails=()
 count_total=0
 count_fails=0
 firefox_var=0
+global_error=false
 
 function firefox_switch() {
 	firefox_var=1
@@ -123,6 +125,39 @@ function set_Background() {
 	fi
 
 	gsettings set org.gnome.desktop.background picture-uri-dark "file://$image"
+
+}
+
+function cronjob_everyday() {
+	hour=$1
+	hour_1=$(echo "$hour" | cut -d ":" -f 1)
+	hour_2=$(echo "$hour" | cut -d ":" -f 2)
+
+	actual_date=$(date +'%y%m%d')
+	actual_year=$(date +'%y')
+
+	# Define the cron job command
+	cron_job="$hour_2 $hour_1 * * * $default_path/fetch-images-NASA.sh -c $hour"
+
+	# Delete the last cron job from the user's crontab
+	(crontab -l | head -n -1) | crontab -
+
+	# Add the cron job to the user's crontab
+	(crontab -l 2>/dev/null; echo "$cron_job") | crontab -
+
+	echo -e "${turquoiseColour}Cron job scheduled to run at hour $hour daily. ${endColour}"
+	echo -e "${orangeColour}$cron_job ${endColour}\n"
+
+	if [ -e "$default_path/Images/$actual_date" ]; then
+		echo -e "${turquoiseColour}Trying to download all the images of 20$actual_year year.${endColour}"
+		echo -e "${orangeColour}All images of 20$actual_year year already in the system.${endColour}"
+		$default_path/fetch-images-NASA.sh -b "$actual_date" 
+		return
+	else
+		echo -e "Images will be downloaded... \n"
+		#$default_path/fetch-images-NASA.sh -c "$hour" 
+		
+	fi
 
 }
 
@@ -198,6 +233,7 @@ function image_displayedd() {
 		#kill $eog_pid
 
 }
+
 function download_image() {
 	date=$1
 	image_url="https://apod.nasa.gov/apod/ap$date.html"
@@ -210,8 +246,7 @@ function download_image() {
 		echo -e "${orangeColour}Directory: $default_path/Images/$date${endColour}"
 	fi
 	curl -s -o "$default_path2"/"$date"/"$date.html" "$image_url"
-	
-	error=false
+ 
 	url_day=$(grep "jpg" "$default_path2/$date"/"$date.html" | cut -d '"' -f 2 | awk "NR==1")
 	if [ -z "$url_day" ]; then
 		url_day=$(grep "jpeg" "$default_path2/$date/$date.html" | cut -d '"' -f 2 | awk "NR==1")
@@ -238,8 +273,9 @@ function download_image() {
 		let count_total+=1
 		echo -e "${yellowColour}------------------------------------------------------------${endColour}"
 	else
-		echo -e "${turquoiseColour}Image already exists.${endColour}"
+		echo -e "${turquoiseColour}Image already exists. And all the others images of this year.${endColour}"
 		echo -e "${yellowColour}------------------------------------------------------------${endColour}"
+		global_error=true
 	fi
 	
 }
@@ -501,7 +537,11 @@ function download_images() {
 	total=$(cat "$default_path/Dates/Dates_$year.txt" | wc -l )
 	for i in $(seq 1 $total); do
 		date=$(cat "$default_path/Dates/Dates_$year.txt" | awk "NR==$i")
-		download_image $date
+		if [ "$global_error" == "false" ]; then
+			download_image $date
+		else
+			return
+		fi
 	done
 
 	echo -e "${grayColour}Total url checked: $count_total${endColour}"
@@ -559,7 +599,7 @@ function set_all_wallpapers() {
 BackUp
 
 counter=0
-while getopts "g:d:p:hi:b:y:wau:s:f" arg; do
+while getopts "g:d:p:hi:b:c:y:wau:s:f" arg; do
 	case $arg in
 		g)
 			year=$OPTARG
@@ -588,6 +628,16 @@ while getopts "g:d:p:hi:b:y:wau:s:f" arg; do
 		b)
 			date=$OPTARG
 			set_Background $date
+			let counter+=1
+			;;
+		c)
+			hour=$OPTARG
+
+			if [[ "$hour" =~ ^([0-1][0-9]|2[0-3]):[0-5][0-9]$ ]]; then
+				cronjob_everyday $hour
+			else
+				echo "Invalid time format. Please use HH:MM."
+			fi
 			let counter+=1
 			;;
 		y)
