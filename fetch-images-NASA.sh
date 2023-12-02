@@ -77,7 +77,7 @@ while getopts "g:d:p:hi:b:cly:wau:s:f" arg; do
 	case $arg in
 		g)
 			year=$OPTARG
-			get_Dates $year
+			get_Dates2 $year
 			echo "$default_path/Dates/Dates_$year.txt"
 			let counter+=1
 			;;

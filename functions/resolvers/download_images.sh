@@ -4,7 +4,7 @@
 function download_images() {
 	year=$1
 
-	get_Dates $year
+	get_Dates2 $year
 
 	total=$(cat "$default_path/Dates/Dates_$year.txt" | wc -l )
 	for i in $(seq 1 $total); do
