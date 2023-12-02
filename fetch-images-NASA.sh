@@ -73,7 +73,7 @@ global_seconds=10
 BackUp
 
 counter=0
-while getopts "g:d:p:hi:b:c:ly:wau:s:f" arg; do
+while getopts "g:d:p:hi:b:cly:wau:s:f" arg; do
 	case $arg in
 		g)
 			year=$OPTARG
@@ -105,13 +105,7 @@ while getopts "g:d:p:hi:b:c:ly:wau:s:f" arg; do
 			let counter+=1
 			;;
 		c)
-			hour=$OPTARG
-
-			if [[ "$hour" =~ ^([0-1][0-9]|2[0-3]):[0-5][0-9]$ ]]; then
-				cronjob_everyday $hour
-			else
-				echo "Invalid time format. Please use HH:MM."
-			fi
+			cronjob_everyday
 			let counter+=1
 			;;
 		l)

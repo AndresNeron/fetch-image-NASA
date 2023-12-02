@@ -12,5 +12,4 @@ function set_Background() {
 	fi
 
 	gsettings set org.gnome.desktop.background picture-uri-dark "file://$image"
-
 }

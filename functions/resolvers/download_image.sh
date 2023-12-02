@@ -33,7 +33,7 @@ function download_image() {
 	echo -e "${orangeColour}$default_path2/$date/$part_3${endColour}"
 	echo
 	if [ ! -e "$default_path2/$date/$part_3" ]; then
-		if [ "$error" = "false" ]; then
+		if [ ! "$error" = "true" ]; then
 			echo
 			curl -o "$default_path2/$date/$part_3" "$url_jpg"
 		else
