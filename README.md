@@ -82,13 +82,13 @@ Here are some examples of how you can use the script:
 - Customize the download path and get APOD dates:
 
 ```bash
-./fetch-images-NASA.sh -d 23
+./fetch-images-NASA.sh -p ./new_path -g 22
 ```
 
 - Setup as background an specific image day using the format YYMMDD (per example, 240416, 230315).
 
 ```bash
-./fetch-images-NASA.sh -p ./new_path -g 22
+./fetch-images-NASA.sh -b 240416
 ```
 
 - View APOD images from a specific year in a randomized gallery with a longer display time:
@@ -106,23 +106,24 @@ Here are some examples of how you can use the script:
 ## <a name="prerequisites"></a>Prerequisites
 Before running this script, ensure you have the following installed on your system, use the package manager (apt, pacman, yum)
 of your linux distro for installing this necessary packages:
-- **curl**: To download files from the web.
-- **eog**: For image displaying.
-- **cat**: To read the contents of a file.
-- **wc**: To count lines in files.
-- **shuf**: To shuffle lines of text.
-- **awk**: To process and manipulate text data.
-- **identify**: Part of the ImageMagick package, used to get image information.
-- **xfconf-query**: For managing Xfce desktop settings (if applicable).
-- **gsettings**: To manage GNOME desktop settings.
-- **sleep**: To pause execution for a specified duration.
-- **grep**: To search for patterns within text.
-- **cut**: To extract sections of text.
-- **mkdir**: To create directories.
-- **rm**: To remove files.
-- **tput**: For terminal control, like hiding the cursor.
-- **tac**: To reverse the order of lines in files.
-- **date**: To generate and manipulate date strings.
+
+-curl: For downloading files from the web.
+-eog: For displaying images.
+-cat: To read the contents of a file.
+-wc: For counting lines in files.
+-shuf: To shuffle lines of text.
+-awk: For text processing and manipulation.
+-identify: A utility from the ImageMagick package used to get image details.
+-xfconf-query: For managing Xfce desktop settings (if applicable).
+-gsettings: To manage GNOME desktop settings.
+-sleep: To pause execution for a specific duration.
+-grep: For pattern matching in text.
+-cut: To extract sections of text.
+-mkdir: For creating directories.
+-rm: For deleting files.
+-tput: To control terminal properties (e.g., hide cursor).
+-tac: To reverse the order of lines in files.
+-date: For generating and manipulating date strings.
 
 ### Installation of Prerequisites
 * For Debian/Ubuntu-based systems, you can install these utilities (if not already installed) using:
