@@ -125,7 +125,6 @@ of your linux distro for installing this necessary packages:
 -tac: To reverse the order of lines in files.
 -date: For generating and manipulating date strings.
 
-### Installation of Prerequisites
 * For Debian/Ubuntu-based systems, you can install these utilities (if not already installed) using:
 
 ```bash
