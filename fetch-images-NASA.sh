@@ -125,3 +125,5 @@ tput cnorm
 if [ $counter -eq 0 ]; then
 	helpPanel
 fi
+
+
