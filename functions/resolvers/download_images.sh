@@ -1,18 +1,19 @@
 #!/bin/bash
 
-# This function receives $year value.
-function download_images() {
+# This receives $year value.
+download_images() {
 	year=$1
 
-	get_Dates2 $year
+	get_Dates2 "$year"
 
 	total=$(cat "$default_path/Dates/Dates_$year.txt" | wc -l )
 	for i in $(seq 1 $total); do
 		date=$(cat "$default_path/Dates/Dates_$year.txt" | awk "NR==$i")
 		if [ "$global_error" == "false" ]; then
-			download_image $date
+			#download_image "$date" 
+			download_image "$date" &
 		else
-			return
+			return 1
 		fi
 	done
 

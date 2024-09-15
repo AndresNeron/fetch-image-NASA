@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function cronjob_everyday() {
+cronjob_everyday() {
 
 	actual_date=$(date +'%y%m%d')
 	actual_year=$(date +'%y')

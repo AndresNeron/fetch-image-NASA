@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # The input is Year.
-function image_displayed_year() {
+image_displayed_year() {
 		year=$1
 		txt_path="$default_path/Dates/Dates_$year.txt"
 		

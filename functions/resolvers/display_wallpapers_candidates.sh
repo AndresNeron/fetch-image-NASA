@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function display_wallpapers_candidates() {
+display_wallpapers_candidates() {
 		txt_path="$default_path/Paths//Paths/wallpapers_candidates2.txt"
 
 		lines=$(cat "$txt_path" | wc -l)

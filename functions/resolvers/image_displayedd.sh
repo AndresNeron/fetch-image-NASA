@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # The input is Date
-function image_displayedd() {
+image_displayedd() {
 		date=$1
 		# Do whatever you want with $image_path
 		image_path="$default_path2/$date"

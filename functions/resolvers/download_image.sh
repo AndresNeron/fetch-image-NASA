@@ -1,8 +1,8 @@
 #!/bin/bash
 
-function download_image() {
-	date=$1
-	image_url="https://apod.nasa.gov/apod/ap$date.html"
+download_image() {
+	date="$1"
+	image_url="https://apod.nasa.gov/apod/ap${date}.html"
 	echo -e "${orangeColour}Fetching -> $image_url ${endColour}"
 
 	if [ -d "$default_path2/$date" ]; then

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # The input is Year. 
-function image_displayed() {
+image_displayed() {
 	year=$1
 	image_path="$default_path2/$year"
 

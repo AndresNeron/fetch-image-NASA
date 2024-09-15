@@ -1,5 +1,5 @@
 #!/bin/bash
 
-function wallpaper_candidate_paths() {
+wallpaper_candidate_paths() {
 	echo
 }

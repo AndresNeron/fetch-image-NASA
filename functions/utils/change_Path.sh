@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Receives new path
-function change_Path() {
+change_Path() {
 	default_path=$1
 	if [ ! -d "$default_path" ]; then
 		mkdir -p $default_path

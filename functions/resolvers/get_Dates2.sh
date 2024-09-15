@@ -1,16 +1,19 @@
 #!/bin/bash
 
-function get_Dates2 (){
+get_Dates2 (){
 	filter_year="20$1"
 	start_date="${filter_year}-01-01"
 
-	if [ "$filter_year" = "2023" ]; then
+	# This line is it necessary to refresh to get the current year
+	current_year="$(date +'%Y')"
+	if [ "$filter_year" = "$current_year" ]; then
 		end_date=$(date +'%Y-%m-%d')
 	else
 		end_date="${filter_year}-12-31"
 	fi
 
 
+	# Create the directory where the Dates will be saved.
 	if [ ! -d "$default_path/Dates" ]; then
 		mkdir -p "$default_path/Dates"
 	fi

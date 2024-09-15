@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # The input is Year to filter.
-# The function saves the list of Dates in a file named "Dates_$1.txt"
-function get_Dates() {
+# The saves the list of Dates in a file named "Dates_$1.txt"
+get_Dates() {
 	filter_year=$1
 
 	years=()

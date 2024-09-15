@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function BackUp() {
+BackUp() {
 
 	Backup_path="/opt/Backup/NASA"
 

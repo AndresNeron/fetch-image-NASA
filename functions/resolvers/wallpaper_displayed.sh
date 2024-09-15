@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Input is absolute path.
-function wallpaper_displayed() {
+wallpaper_displayed() {
 		# Do whatever you want with $image_path
 		image_path=$1
 		identify -format "%w %h %i\n" "$image_path"

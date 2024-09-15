@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function set_all_wallpapers() {
+set_all_wallpapers() {
 	year=$1
 	txt_path="$default_path/Dates/Dates_$year.txt"
 	
@@ -24,10 +24,11 @@ function set_all_wallpapers() {
 			image=$(ls "$image_path" | grep -v "html")
 			image="$image_path/$image"
 
-			echo "identify -format %w %h %i\n $image"
-			identify -format "%w %h %i\n" "$image"
+			#echo "identify -format %w %h %i\n $image"
+			#identify -format "%w %h %i\n" "$image"
+			identify -format "%wx%h %i" "$image" && set_Background "$date"
 
-		set_Background $date
+		#set_Background $date
 		wallpaper_pid=$!
 		
 		# Start the loop to print the countdown in the foreground
