@@ -12,7 +12,7 @@ an excellent tool for space enthusiasts and wallpaper enthusiasts alike.
 - [Features](#features)
 - [Usage](#usage)
 - [Examples](#examples)
-- [Prerequisites] (#prerequisites)
+- [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [License](#license)
 
