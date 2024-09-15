@@ -107,23 +107,23 @@ Here are some examples of how you can use the script:
 Before running this script, ensure you have the following installed on your system, use the package manager (apt, pacman, yum)
 of your linux distro for installing this necessary packages:
 
--curl: For downloading files from the web.
--eog: For displaying images.
--cat: To read the contents of a file.
--wc: For counting lines in files.
--shuf: To shuffle lines of text.
--awk: For text processing and manipulation.
--identify: A utility from the ImageMagick package used to get image details.
--xfconf-query: For managing Xfce desktop settings (if applicable).
--gsettings: To manage GNOME desktop settings.
--sleep: To pause execution for a specific duration.
--grep: For pattern matching in text.
--cut: To extract sections of text.
--mkdir: For creating directories.
--rm: For deleting files.
--tput: To control terminal properties (e.g., hide cursor).
--tac: To reverse the order of lines in files.
--date: For generating and manipulating date strings.
+- curl: For downloading files from the web.
+- eog: For displaying images.
+- cat: To read the contents of a file.
+- wc: For counting lines in files.
+- shuf: To shuffle lines of text.
+- awk: For text processing and manipulation.
+- identify: A utility from the ImageMagick package used to get image details.
+- xfconf-query: For managing Xfce desktop settings (if applicable).
+- gsettings: To manage GNOME desktop settings.
+- sleep: To pause execution for a specific duration.
+- grep: For pattern matching in text.
+- cut: To extract sections of text.
+- mkdir: For creating directories.
+- rm: For deleting files.
+- tput: To control terminal properties (e.g., hide cursor).
+- tac: To reverse the order of lines in files.
+- date: For generating and manipulating date strings.
 
 * For Debian/Ubuntu-based systems, you can install these utilities (if not already installed) using:
 
