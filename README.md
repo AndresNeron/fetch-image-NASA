@@ -143,7 +143,7 @@ sudo yum install ImageMagick xfce4-settings gsettings curl grep coreutils
 sudo pacman -S imagemagick xfce4-settings gsettings curl grep coreutils
 ```
 
-This ensures that users have the necessary tools installed to run your script smoothly.
+This ensures that you can have the necessary tools installed on your system to run the script smoothly.
 
 ## <a name="installation"></a>Installation
 To use this script, you need to clone the GitHub repository and execute the script from your terminal.
