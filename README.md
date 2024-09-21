@@ -29,7 +29,7 @@ as a gallery to setting them as your desktop wallpaper.
 
 - Customize Path: Change the default path where downloaded images are stored.
 
-- Desktop Wallpaper: Set your desktop wallpaper to the APOD image for a specific date or a randomized selection (tested on GNOME environment).
+- Desktop Wallpaper: Set your desktop wallpaper to the APOD image for a specific date or a randomized selection (tested on GNOME, XFCE4 environments).
 
 - Supported desktop Environments (GNOME, XFCE4), tested on Ubuntu, Debian, Kali and Arch.
 
