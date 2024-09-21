@@ -10,10 +10,10 @@ an excellent tool for space enthusiasts and wallpaper enthusiasts alike.
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Usage](#usage)
-- [Examples](#examples)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
 - [License](#license)
 
 ## <a name="introduction"></a>Introduction
