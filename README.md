@@ -38,6 +38,56 @@ as a gallery to setting them as your desktop wallpaper.
 - Firefox Integration: Quickly view the APOD image description in your default web browser using a simple switch.
 
 
+## <a name="prerequisites"></a>Prerequisites
+Before running this script, ensure you have the following installed on your system, use the package manager (apt, pacman, yum)
+of your linux distro for installing this necessary packages:
+
+- curl: For downloading files from the web.
+- eog: For displaying images.
+- cat: To read the contents of a file.
+- wc: For counting lines in files.
+- shuf: To shuffle lines of text.
+- awk: For text processing and manipulation.
+- identify: A utility from the ImageMagick package used to get image details.
+- xfconf-query: For managing Xfce desktop settings (only if you have XFCE4).
+- gsettings: To manage GNOME desktop settings (considering you use GNOME).
+- sleep: To pause execution for a specific duration.
+- grep: For pattern matching in text.
+- cut: To extract sections of text.
+- mkdir: For creating directories.
+- rm: For deleting files.
+- tput: To control terminal properties (e.g., hide cursor).
+- tac: To reverse the order of lines in files.
+- date: For generating and manipulating date strings.
+
+* For Debian/Ubuntu-based systems, you can install these utilities (if not already installed) using:
+
+```bash
+sudo apt update
+sudo apt install imagemagick xfce4-settings gsettings curl grep coreutils
+```
+* For Red Hat-based systems, use:
+
+```bash
+sudo yum install ImageMagick xfce4-settings gsettings curl grep coreutils
+```
+
+* For Arch-based systems, use:
+
+```bash
+sudo pacman -S imagemagick xfce4-settings gsettings curl grep coreutils
+```
+
+This ensures that you can have the necessary tools installed on your system to run the script smoothly.
+
+## <a name="installation"></a>Installation
+To use this script, you need to clone the GitHub repository and execute the script from your terminal.
+
+```bash
+git clone https://github.com/AndresNeron/fetch-images-NASA.git
+cd fetch-images-NASA
+./fetch-images-NASA.sh [options]
+```
 
 ## <a name="usage"></a>Usage
 
@@ -103,56 +153,7 @@ Here are some examples of how you can use the script:
 ./fetch-images-NASA.sh -f -s 300 -w 23
 ```
 
-## <a name="prerequisites"></a>Prerequisites
-Before running this script, ensure you have the following installed on your system, use the package manager (apt, pacman, yum)
-of your linux distro for installing this necessary packages:
 
-- curl: For downloading files from the web.
-- eog: For displaying images.
-- cat: To read the contents of a file.
-- wc: For counting lines in files.
-- shuf: To shuffle lines of text.
-- awk: For text processing and manipulation.
-- identify: A utility from the ImageMagick package used to get image details.
-- xfconf-query: For managing Xfce desktop settings (if applicable).
-- gsettings: To manage GNOME desktop settings.
-- sleep: To pause execution for a specific duration.
-- grep: For pattern matching in text.
-- cut: To extract sections of text.
-- mkdir: For creating directories.
-- rm: For deleting files.
-- tput: To control terminal properties (e.g., hide cursor).
-- tac: To reverse the order of lines in files.
-- date: For generating and manipulating date strings.
-
-* For Debian/Ubuntu-based systems, you can install these utilities (if not already installed) using:
-
-```bash
-sudo apt update
-sudo apt install imagemagick xfce4-settings gsettings curl grep coreutils
-```
-* For Red Hat-based systems, use:
-
-```bash
-sudo yum install ImageMagick xfce4-settings gsettings curl grep coreutils
-```
-
-* For Arch-based systems, use:
-
-```bash
-sudo pacman -S imagemagick xfce4-settings gsettings curl grep coreutils
-```
-
-This ensures that you can have the necessary tools installed on your system to run the script smoothly.
-
-## <a name="installation"></a>Installation
-To use this script, you need to clone the GitHub repository and execute the script from your terminal.
-
-```bash
-git clone https://github.com/AndresNeron/fetch-images-NASA.git
-cd fetch-images-NASA
-./fetch-images-NASA.sh [options]
-```
 
 ## <a name="license"></a>License
 This project is licensed under the [MIT License](LICENSE), which means you are free to use, modify, 
